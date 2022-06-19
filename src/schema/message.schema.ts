@@ -1,4 +1,4 @@
-import { object, string, number } from "yup";
+import { object, string } from "yup";
 
 const payload = {
   body: object({
@@ -6,7 +6,7 @@ const payload = {
     email: string()
       .email("Must be a valid email")
       .required("Email is required"),
-      phone: number().required("Phone number is required"),
+      phone: string().required("Phone number is required"),
       service: string().required("Service is required"),
       description: string().required("Description is required"),
   }),

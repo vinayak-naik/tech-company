@@ -14,8 +14,6 @@ export async function createMessageHandler(req: Request, res: Response) {
   const userId = get(req, "user._id");
   const body = req.body;
 
-  console.log(body)
-
   const message = await createMessage({ ...body, user: userId });
 
   await sendMail(body)

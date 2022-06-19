@@ -19,7 +19,7 @@ export function findBlog(
 }
 export async function findAllBlogs(req: Request) {
   const { limit, skip, search } = req.query;
-  const fileLimit = limit?Number(limit):4;
+  const fileLimit = limit?Number(limit):40;
   const fileSkip = skip?Number(skip):0;
 
   const query = search
@@ -29,7 +29,8 @@ export async function findAllBlogs(req: Request) {
   let result = await Blog.find(query)
     .limit(fileLimit)
     .skip(fileLimit * fileSkip);
-  return { length: find.length, result };
+  return result;
+  // return [result,find.length];
 }
 
 export function findAndUpdate(

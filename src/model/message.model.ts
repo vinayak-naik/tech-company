@@ -6,7 +6,7 @@ export interface MessageDocument extends mongoose.Document {
   user: UserDocument["_id"];
   name: string;
   email: string;
-  phone: number;
+  phone: string;
   service: string;
   description: string;
   createdAt: Date;
@@ -24,7 +24,7 @@ const MessageSchema = new mongoose.Schema(
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     name: { type: String, required:true},
     email: { type: String, required:true},
-    phone: { type: Number, required:true},
+    phone: { type: String, required:true},
     service: { type: String, required:true},
     description: { type: String, default: "" },
   },

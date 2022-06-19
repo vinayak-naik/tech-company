@@ -96,7 +96,7 @@ export default function (app: Application) {
       // Create a blog
       app.post(
         "/api/blog",
-        [requiresUser,validateRequest(createBlogSchema)],
+        [validateRequest(createBlogSchema)],
         upload.single("file"),
         createBlogHandler
       );
@@ -109,7 +109,7 @@ export default function (app: Application) {
         );
       
         // Get a blog
-        app.get("/api/blog/:blogId",requiresUser, getBlogHandler);
+        app.get("/api/blog/:blogId",getBlogHandler);
     
         // Get all blogs
         app.get("/api/blogs",getAllBlogHandler);

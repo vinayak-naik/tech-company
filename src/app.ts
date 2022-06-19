@@ -5,10 +5,12 @@ import connect from "./db/connect";
 import config from "config";
 import { deserializeUser } from "./middleware";
 import log from "./logger";
+import cors from "cors";
 
 const port = config.get("port") as number;
 const host = config.get("host") as string;
 const app: Application = express();
+app.use(cors());
 app.use(deserializeUser);
 
 app.use(express.json());
